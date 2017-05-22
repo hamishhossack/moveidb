@@ -5,6 +5,7 @@ export default class Component {
   constructor() {
     this.name = '';
     this.tpl = '';
+    this.context = {};
   }
 
   /**
@@ -27,7 +28,7 @@ export default class Component {
     if (!this.tpl) {
       throw Error('No template defined');
     }
-    return Handlebars.compile(this.tpl())();
+    return Handlebars.compile(this.tpl(this.context))();
   }
 
   /**
