@@ -1,4 +1,13 @@
 main {
   min-width: 100%;
   min-height: 100%;
+  background: color(darkteal);
+
+  .main-header {
+    padding: .5em;
+  }
+
+  .logo img {
+    height: 3em;
+  }
 }

@@ -1,0 +1,16 @@
+search {
+  input[type="text"] {
+    background: transparent;
+    color: color(pearl);
+    border: none;
+    border-bottom: 1px solid color(pearl);
+    font: font(large);
+
+    &::placeholder {
+      color: color(pearl);
+    }
+    &:focus {
+      outline: none;
+    }
+  }
+}
