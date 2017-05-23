@@ -1,0 +1,11 @@
+<section class="carousel current-list row">
+  {{#each movies}}
+    <div class="carousel-unit three columns" style="background: url(https://image.tmdb.org/t/p/original/{{ poster_path }})" data-id="{{id}}">
+      {{ title }}
+      <div class="overview">
+        <p>{{overview}}</p>
+        <p>{{release_date}}</p>
+      </div>
+    </div>
+  {{/each}}
+</section>
