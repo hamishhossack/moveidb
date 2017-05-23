@@ -1,20 +1,21 @@
 # MovieDb
 
 ## Get Started
- ```npm install webpack -g```
+ ```yarn install webpack -g```
  
- ```npm install```
+ ```yarn install```
  
- ```npm start```
+ ```yarn start```
 
 ## Build
-```npm run build:prod```
+```yarn run build:prod```
 
 ## Test
-*Known issues*
-- Tests not running with any artificial dom
-- Tests not mocking any service / feature
-```npm test```
+```yarn test```
+
+> *Known issues*
+> - Tests not running with any artificial dom
+> - Tests not mocking any service / feature
 
 ## Requirements
 The solution has to be provided as a Git repository including all the implementation commits history. Please follow the frequent commit practice while working on the task so that your local Git repository indicates reasonable milestones of your implementation. You are more than welcome to share your Git repository on a free service such as GitHub or BitBucket
