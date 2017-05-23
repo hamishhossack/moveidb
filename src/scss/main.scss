@@ -4,6 +4,10 @@
   "base/grid",
   "base/base";
 
+@import "vendors";
+
 @import "pages/main";
 
-@import "../components/search/search";
+@import
+  "../components/search/search",
+  "../components/current-list/current-list";

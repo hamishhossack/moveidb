@@ -49,7 +49,12 @@ export default class Component {
    * Render the html inside the component element
    */
   render() {
+    // clean element
+    this.destroy();
+    // render the compiled template
     this.el.innerHTML = this.compile;
+    // bind events again
+    this.bindEvents();
   }
 
   /**

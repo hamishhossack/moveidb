@@ -1,0 +1,36 @@
+current-list {
+  .gallery-cell {
+    margin: 0 .5em;
+    height: 20em;
+    background-size: cover;
+    background-position-x: center;
+    background-position-y: top;
+    position: relative;
+
+    h2, .content {
+      font: font(medium);
+      color: color(pearl);
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    h2 {
+      background: rgba(0,0,0,0.6);
+    }
+
+    .content {
+      display: none;
+    }
+
+    &:hover {
+      h2 {
+        top: 0;
+      }
+      .content {
+        display: block;
+      }
+    }
+  }
+}

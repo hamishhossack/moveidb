@@ -1,11 +1,23 @@
-<section class="carousel current-list row">
-  {{#each movies}}
-    <div class="carousel-unit three columns" style="background: url(https://image.tmdb.org/t/p/original/{{ poster_path }})" data-id="{{id}}">
-      {{ title }}
-      <div class="overview">
-        <p>{{overview}}</p>
-        <p>{{release_date}}</p>
-      </div>
+{{#if movies}}
+  <section class="current-list row">
+    <div class="gallery">
+      {{#each movies}}
+        <div class="gallery-cell"
+             data-id="{{id}}"
+             style="background-image:url(
+               {{#if poster_path}}
+               https://image.tmdb.org/t/p/w500{{poster_path}}
+               {{else}}
+               http://hamishhossack.co.uk/logo.svg
+               {{/if}}
+               )">
+          <h2>{{title}}</h2>
+          <div class="content">
+            <p>{{truncate overview}}</p>
+            <p>{{release_date}}</p>
+          </div>
+        </div>
+      {{/each}}
     </div>
-  {{/each}}
-</section>
+  </section>
+{{/if}}

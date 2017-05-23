@@ -1,6 +1,12 @@
 /**
  * Require all vendors for the project
- * Stay safe and use require instead of import :)
  */
 
-require('rxjs/Rx');
+import 'rxjs/Rx';
+
+import Handlebars from 'handlebars';
+
+Handlebars.registerHelper(
+  'truncate',
+  (str, length = 150) => str.length > length ? `${str.substring(0, length)}...` : str
+);
