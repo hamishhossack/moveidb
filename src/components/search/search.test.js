@@ -1,6 +1,6 @@
 import SearchComponent from './index';
 import searchComponentTpl from './search.hbs';
-import CurrentMoviesService from '../../services/currentMovies/index';
+import CurrentMoviesService from '../../services/current-movies/index';
 
 let component;
 const currentMoviesService = new CurrentMoviesService();

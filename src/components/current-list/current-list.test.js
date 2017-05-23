@@ -1,5 +1,5 @@
 import CurrentListComponent from './index';
-import CurrentMoviesService from '../../services/currentMovies/index';
+import CurrentMoviesService from '../../services/current-movies/index';
 import currentListComponentTpl from './current-list.hbs';
 
 const currentMoviesService = new CurrentMoviesService();
