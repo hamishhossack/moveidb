@@ -2,7 +2,9 @@
 
 ## Get Started
  ```npm install webpack -g```
+ 
  ```npm install```
+ 
  ```npm start```
 
 ## Build
@@ -24,8 +26,8 @@ b. In case you need to use external libraries, please add them
 2. Any installation and deployment instructions for apps and components
 
 ## Improvements
-[ ] State management (redux)
-[ ] Test runner within Karma (e2e)
-[ ] Implement "Shadow DOM" to improve render mechanism
-[ ] Add selected movie section
-[ ] Add Movie Discovery section
+- [ ] State management (redux)
+- [ ] Test runner within Karma (e2e)
+- [ ] Implement "Shadow DOM" to improve render mechanism
+- [ ] Add selected movie section
+- [ ] Add Movie Discovery section
