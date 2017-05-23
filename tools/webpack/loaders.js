@@ -91,6 +91,17 @@ const JavascriptLoader = () => {
   }
 };
 
+const InstanbulLoader = () => {
+  return {
+    test: /\.js$/,
+    include: helpers.root('src'),
+    loader: 'istanbul-instrumenter-loader',
+    query: {
+      esModules: true
+    }
+  };
+}
+
 module.exports = {
   CssLoader,
   SassLoader,
@@ -99,5 +110,6 @@ module.exports = {
   FileLoader,
   SourceMapLoader,
   HandlebarsLoader,
-  JavascriptLoader
+  JavascriptLoader,
+  InstanbulLoader,
 };

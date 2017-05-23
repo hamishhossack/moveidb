@@ -1,12 +1,7 @@
 import Component from './component';
-import { expect } from 'chai';
 
-const testRenderTpl = `
-  <div><span></span><div>
-`;
-const testContextRenderTpl = `
-  <div><span>{{contextTest}}</span><div>
-`;
+import testRenderTpl from './mocks/mockTestRender.hbs';
+import testContextRenderTpl from './mocks/mockContextRender.hbs';
 
 let component;
 
@@ -19,15 +14,15 @@ describe('Component', () => {
   describe('Sanity check', () => {
 
     it('should have an empty name', () => {
-      expect(component.name).to.be.empty;
+      expect(component.name).toBeNull();
     });
 
     it('should have an empty tpl', () => {
-      expect(component.tpl).to.be.empty;
+      expect(component.tpl).toBeNull();
     });
 
     it('should have an empty context', () => {
-      expect(component.context).to.be.empty;
+      expect(component.context).toBeNull();
     });
 
   });
@@ -35,24 +30,23 @@ describe('Component', () => {
   describe('Compilation', () => {
 
     it('should not compile without tpl', () => {
-      expect(component.compile).to.throw(Error);
+      expect(() => component.compile).toThrow(new Error(`No template defined`));
     });
 
     it('should not render without tpl', () => {
-      expect(component.render()).to.throw(Error);
+      expect(() => component.render()).toThrow(new Error(`No component found for component name "<${component.name}>"`));
     });
 
     it('should render and compile a template', () => {
       component.tpl = testRenderTpl;
-      expect(component.compile).to.equal(testRenderTpl);
+      expect(component.compile).toEqual(testRenderTpl());
     });
 
     it('should render and compile a template with context', () => {
       component.tpl = testContextRenderTpl;
       component.context = { contextTest: 'testing' };
 
-      const expectedResult = testContextRenderTpl.replace('{{contextTest}}', 'testing');
-      expect(component.compile).to.equal(expectedResult);
+      expect(component.compile.indexOf('testing') > -1).toBeTruthy();
     });
 
   });

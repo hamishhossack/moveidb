@@ -1,6 +1,6 @@
 import { Subject } from 'rxjs';
 
-import theMovieDb from './moviedb';
+import theMovieDb from '../moviedb/index';
 
 /**
  * Current Movies Service
@@ -12,8 +12,8 @@ export default class CurrentMoviesService {
     this.totalPages = 0;
     this.totalResults = 0;
 
-    this._query = '';
-    this._movies = [];
+    this._query = null;
+    this._movies = null;
 
     this.$movies = new Subject();
     this.$searchQuery = new Subject();

@@ -22,7 +22,7 @@ module.exports = () => {
     },
 
     resolve: {
-      extensions: [ '.js', '.scss' ],
+      extensions: [ '.js', '.css', '.scss' ],
       modules: [
         helpers.root('src'),
         helpers.root('node_modules'),

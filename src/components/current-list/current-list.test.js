@@ -1,7 +1,5 @@
-import { expect } from 'chai';
-
 import CurrentListComponent from './index';
-import CurrentMoviesService from '../../services/currentMovies';
+import CurrentMoviesService from '../../services/currentMovies/index';
 import currentListComponentTpl from './current-list.hbs';
 
 const currentMoviesService = new CurrentMoviesService();
@@ -17,11 +15,11 @@ describe('CurrentListComponent', () => {
   describe('Sanity check', () => {
 
     it('should have a name search', () => {
-      expect(component.name).to.equal('current-list');
+      expect(component.name).toEqual('current-list');
     });
 
     it('should have a string template', () => {
-      expect(component.tpl).to.equal(currentListComponentTpl);
+      expect(component.tpl).toEqual(currentListComponentTpl);
     });
 
   });

@@ -1,6 +1,4 @@
-import { expect } from 'chai';
-
-import CurrentMoviesService from './currentMovies';
+import CurrentMoviesService from './index';
 
 let service;
 
@@ -13,7 +11,7 @@ const mockSearchResponse = {
   page: 0,
   total_pages: 1,
   total_results: 2,
-  results: [ mockMovies ]
+  results: mockMovies
 };
 
 describe('CurrentMoviesService', () => {
@@ -25,17 +23,17 @@ describe('CurrentMoviesService', () => {
   describe('Sanity check', () => {
 
     it('should have an empty query', () => {
-      expect(service._query).to.be.empty;
+      expect(service._query).toBeNull();
     });
 
     it('should have no movies', () => {
-      expect(service._movies).to.be.empty;
+      expect(service._movies).toBeNull();
     });
 
-    it('should have no response settings', () => {
-      expect(service.page).to.equal(0);
-      expect(service.totalPages).to.equal(0);
-      expect(service.totalResults).to.equal(0);
+    it('should have default response settings', () => {
+      expect(service.page).toEqual(1);
+      expect(service.totalPages).toEqual(0);
+      expect(service.totalResults).toEqual(0);
     });
 
   });
@@ -44,14 +42,14 @@ describe('CurrentMoviesService', () => {
 
     it('should add page results', () => {
       service.hydrate = mockSearchResponse;
-      expect(service.page).to.equal(0);
-      expect(service.totalPages).to.equal(1);
-      expect(service.totalResults).to.equal(2);
+      expect(service.page).toEqual(0);
+      expect(service.totalPages).toEqual(1);
+      expect(service.totalResults).toEqual(2);
     });
 
     it('should add results', () => {
       service.hydrate = mockSearchResponse;
-      expect(service._movies).to.equal(mockMovies);
+      expect(service._movies).toEqual(mockMovies);
     });
 
   });
@@ -62,7 +60,7 @@ describe('CurrentMoviesService', () => {
       const searchQuery = 'testing';
 
       service.$searchQuery.subscribe((resultQuery) => {
-        expect(resultQuery).to.equal(searchQuery);
+        expect(resultQuery).toEqual(searchQuery);
       });
 
       service.query = searchQuery;
@@ -74,10 +72,10 @@ describe('CurrentMoviesService', () => {
 
     it('should hear the movies update', () => {
       service.$movies.subscribe((resultMovies) => {
-        expect(resultMovies).to.equal(mockMovies);
-        expect(resultMovies).to.have.length(2);
-        expect(resultMovies[ 0 ]).to.have.property('title');
-        expect(resultMovies[ 0 ].title).to.equal(mockMovies[ 0 ].title);
+        expect(resultMovies).toEqual(mockMovies);
+        expect(resultMovies.length).toEqual(2);
+        expect(resultMovies[ 0 ].title).toBeTruthy();
+        expect(resultMovies[ 0 ].title).toEqual(mockMovies[ 0 ].title);
       });
 
       service.movies = mockMovies;

@@ -3,9 +3,9 @@ import Handlebars from 'handlebars';
 export default class Component {
 
   constructor() {
-    this.name = '';
-    this.tpl = '';
-    this.context = {};
+    this.name = null;
+    this.tpl = null;
+    this.context = null;
   }
 
   /**

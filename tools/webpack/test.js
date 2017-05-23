@@ -3,7 +3,6 @@ const webpackMerge = require('webpack-merge');
 const ProvidePlugin = require('webpack/lib/ProvidePlugin');
 const DefinePlugin = require('webpack/lib/DefinePlugin');
 const LoaderOptionsPlugin = require('webpack/lib/LoaderOptionsPlugin');
-const nodeExternals = require('webpack-node-externals');
 
 const commonConfig = require('./common');
 const helpers = require('./../helpers');
@@ -23,25 +22,20 @@ module.exports = function (options) {
 
   return {
 
-    devtool: 'cheap-module-source-map',
+    devtool: 'inline-source-map',
 
     resolve: {
       extensions: [ '.js' ],
       modules: [ path.resolve(__dirname, 'src'), 'node_modules' ],
-      alias: {
-        handlebars: 'handlebars/dist/handlebars.js'
-      },
     },
 
     module: {
       rules: [
-        loaders.JsonLoader(),
-        loaders.SourceMapLoader(),
         loaders.CssLoader(),
         loaders.SassLoader(),
-        loaders.FileLoader(),
         loaders.HandlebarsLoader(),
         loaders.JavascriptLoader(),
+        loaders.InstanbulLoader()
       ]
     },
 
@@ -68,8 +62,14 @@ module.exports = function (options) {
       hints: false
     },
 
-    target: 'node',
-    externals: [ nodeExternals() ],
+    node: {
+      global: true,
+      process: false,
+      crypto: 'empty',
+      module: false,
+      clearImmediate: false,
+      setImmediate: false
+    }
 
   };
 }
