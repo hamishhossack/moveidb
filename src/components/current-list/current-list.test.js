@@ -1,6 +1,7 @@
 import CurrentListComponent from './index';
 import CurrentMoviesService from '../../services/current-movies/index';
 import currentListComponentTpl from './current-list.hbs';
+import mockMovies from '../../mocks/mock-movies.mock';
 
 const currentMoviesService = new CurrentMoviesService();
 
@@ -20,6 +21,21 @@ describe('CurrentListComponent', () => {
 
     it('should have a string template', () => {
       expect(component.tpl).toEqual(currentListComponentTpl);
+    });
+
+  });
+
+  describe('Gallery', () => {
+
+    beforeEach(() => {
+      const el = document.createElement('current-list');
+      document.body.appendChild(el);
+    });
+
+    it('should show results in gallery', () => {
+      component.context.movies = mockMovies;
+      component.render();
+      expect(document.querySelectorAll('.gallery-cell').length).toEqual(mockMovies.length);
     });
 
   });

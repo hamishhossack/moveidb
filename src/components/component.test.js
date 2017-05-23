@@ -1,7 +1,7 @@
 import Component from './component';
 
-import testRenderTpl from './mocks/mockTestRender.hbs';
-import testContextRenderTpl from './mocks/mockContextRender.hbs';
+import testRenderTpl from '../mocks/mock-test-render.hbs';
+import testContextRenderTpl from '../mocks/mock-context-render.hbs';
 
 let component;
 
