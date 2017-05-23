@@ -2,7 +2,17 @@
 
 ## Get Started
  ```npm install webpack -g```
- ```npm setup```
+ ```npm install```
+ ```npm start```
+
+## Build
+```npm run build:prod```
+
+## Test
+*Known issues*
+- Tests not running with any artificial dom
+- Tests not mocking any service / feature
+```npm test```
 
 ## Requirements
 The solution has to be provided as a Git repository including all the implementation commits history. Please follow the frequent commit practice while working on the task so that your local Git repository indicates reasonable milestones of your implementation. You are more than welcome to share your Git repository on a free service such as GitHub or BitBucket
@@ -12,3 +22,10 @@ The repository should contain:
 a. It should be buildable/viewable
 b. In case you need to use external libraries, please add them
 2. Any installation and deployment instructions for apps and components
+
+## Improvements
+[ ] State management (redux)
+[ ] Test runner within Karma (e2e)
+[ ] Implement "Shadow DOM" to improve render mechanism
+[ ] Add selected movie section
+[ ] Add Movie Discovery section
