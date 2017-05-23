@@ -10,8 +10,7 @@
 
 ## Test
 *Known issues*
-- Tests not running with any artificial dom
-- Tests not mocking any service / feature
+- Tests not mocking(or spying) any service
 ```npm test```
 
 ## Requirements
@@ -25,7 +24,7 @@ b. In case you need to use external libraries, please add them
 
 ## Improvements
 [ ] State management (redux)
-[ ] Test runner within Karma (e2e)
+[x] Test runner within Karma
 [ ] Implement "Shadow DOM" to improve render mechanism
 [ ] Add selected movie section
 [ ] Add Movie Discovery section
