@@ -1,7 +1,6 @@
 import { expect } from 'chai';
 
 import SearchComponent from './index';
-import theMovideDb from '../../services/moviedb'; // TODO (hamish): Mock this further down the line
 import searchComponentTpl from './search.hbs';
 import CurrentMoviesService from '../../services/currentMovies';
 
@@ -11,7 +10,7 @@ const currentMoviesService = new CurrentMoviesService();
 describe('SearchComponent', () => {
 
   beforeEach(() => {
-    component = new SearchComponent({ theMovieDb, currentMoviesService });
+    component = new SearchComponent({ currentMoviesService });
   });
 
   describe('Sanity check', () => {

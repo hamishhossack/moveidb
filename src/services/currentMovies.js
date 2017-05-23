@@ -1,12 +1,14 @@
 import { Subject } from 'rxjs';
 
+import theMovieDb from './moviedb';
+
 /**
  * Current Movies Service
  */
 export default class CurrentMoviesService {
 
   constructor() {
-    this.page = 0;
+    this.page = 1;
     this.totalPages = 0;
     this.totalResults = 0;
 
@@ -24,6 +26,7 @@ export default class CurrentMoviesService {
   set searchQuery(query) {
     this._query = query;
     this.$searchQuery.next(query);
+    this.search();
   }
 
   get searchQuery() {
@@ -52,5 +55,39 @@ export default class CurrentMoviesService {
     this.totalPages = res.total_pages
     this.totalResults = res.total_results;
     this.movies = res.results;
+  }
+
+  /**
+   * Find the next page of results
+   */
+  nextPage() {
+    if (this.page < this.totalPages) {
+      this.page++;
+      this.search();
+    }
+  }
+
+  /**
+   * Find the next page of results
+   */
+  prevPage() {
+    if (this.page > 1) {
+      this.page--;
+      this.search();
+    }
+  }
+
+  /**
+   * Search the movie db for results
+   */
+  search() {
+    theMovieDb.search.getMovie(
+      {
+        query: this.searchQuery,
+        page: this.page
+      },
+      res => this.hydrate = JSON.parse(res),
+      console.error
+    );
   }
 }
