@@ -1,6 +1,6 @@
 import CurrentMoviesService from './index';
-import mockMovies from '../../mocks/mock-movies.mock';
-import mockSearchResponse from '../../mocks/mock-search-response.mock';
+import mockMovies from '../../__tests__/mocks/mock-movies.mock';
+import mockSearchResponse from '../../__tests__/mocks/mock-search-response.mock';
 
 let service;
 

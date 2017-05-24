@@ -1,7 +1,7 @@
 import CurrentListComponent from './index';
 import CurrentMoviesService from '../../services/current-movies/index';
 import currentListComponentTpl from './current-list.hbs';
-import mockMovies from '../../mocks/mock-movies.mock';
+import mockMovies from '../../__tests__/mocks/mock-movies.mock';
 
 const currentMoviesService = new CurrentMoviesService();
 
