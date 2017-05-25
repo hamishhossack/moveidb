@@ -46,7 +46,6 @@ const JsonLoader = () => {
   };
 };
 
-
 const HtmlLoader = () => {
   return {
     test: /\.html$/,
@@ -57,10 +56,10 @@ const HtmlLoader = () => {
 
 const FileLoader = () => {
   return {
-    test: /\.(jpg|png|gif)$/,
+    test: /\.(jpg|png|gif|eot|woff2?|svg|ttf)([\?]?.*)$/,
     use: 'file-loader'
   };
-};
+}
 
 const SourceMapLoader = () => {
   return {
@@ -73,7 +72,10 @@ const SourceMapLoader = () => {
 const HandlebarsLoader = () => {
   return {
     test: /\.hbs/,
-    loader: 'handlebars-loader'
+    loader: 'handlebars-loader',
+    query: {
+      helperDirs: [ helpers.root('src', 'helpers', 'handlebars') ]
+    }
   };
 };
 
