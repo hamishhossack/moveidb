@@ -1,14 +1,15 @@
 import Siema from 'siema';
 import Component from '../component';
-import currentListCompTpl from './current-list.hbs';
+import currentListCompTpl from './movie-list.hbs';
 
-export default class CurrentListComponent extends Component {
-  constructor({ currentMoviesService }) {
+export default class MovieListComponent extends Component {
+  constructor({ currentMoviesService, selectedMovieService }) {
     super();
     this.currentMoviesService = currentMoviesService;
+    this.selectedMovieService = selectedMovieService;
 
     this.siema = null;
-    this.name = 'current-list';
+    this.name = 'movie-list';
     this.tpl = currentListCompTpl;
     this.context = {
       movies: this.currentMoviesService.movies
@@ -27,6 +28,14 @@ export default class CurrentListComponent extends Component {
     const $gallery = this.el.querySelector('.gallery');
     if ($gallery) {
       this.initGallery($gallery);
+
+      // listen for a click for each gallery cell
+      const $galleryCells = $gallery.querySelectorAll('.gallery-cell');
+      $galleryCells.forEach(
+        $cell => $cell.addEventListener(
+          'click', $event => this.onClickGalleryCell($event.target.dataset.id)
+        )
+      );
     }
   }
 
@@ -45,5 +54,14 @@ export default class CurrentListComponent extends Component {
       threshold: 20,
       loop: false,
     });
+  }
+
+  /**
+   * Actionable func to apply to a gallery cell click event
+   * @param id
+   */
+  onClickGalleryCell(id) {
+    this.selectedMovieService.movie = this.currentMoviesService.movies
+      .filter(movie => movie.id === id);
   }
 }

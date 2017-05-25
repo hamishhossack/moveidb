@@ -1,4 +1,4 @@
-current-list {
+movie-list {
   .gallery-cell {
     margin: 0 .5em;
     height: 20em;
@@ -24,12 +24,25 @@ current-list {
       display: none;
     }
 
+    .date {
+      font: font(small);
+      color: color(grey);
+    }
+
     &:hover {
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+
       h2 {
         top: 0;
+        text-decoration: underline;
       }
       .content {
         display: block;
+      }
+
+      h2, .content {
+        -webkit-animation: fadeInUp 500ms;
+        animation: fadeInUp 500ms;
       }
     }
   }

@@ -1,5 +1,5 @@
 {{#if movies}}
-  <section class="current-list row">
+  <section class="movie-list row">
     <div class="gallery">
       {{#each movies}}
         <div class="gallery-cell"
@@ -8,14 +8,9 @@
                {{#if poster_path}}
                https://image.tmdb.org/t/p/w500{{poster_path}}
                {{else}}
-               http://hamishhossack.co.uk/logo.svg
+               http://hamishhossack.co.uk/assets/images/logo.svg
                {{/if}}
                )">
-          <h2>{{title}}</h2>
-          <div class="content">
-            <p>{{overview}}</p>
-            <p>{{release_date}}</p>
-          </div>
         </div>
       {{/each}}
     </div>
