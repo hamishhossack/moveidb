@@ -62,6 +62,6 @@ export default class MovieListComponent extends Component {
    */
   onClickGalleryCell(id) {
     this.selectedMovieService.movie = this.currentMoviesService.movies
-      .filter(movie => movie.id === id);
+      .filter(movie => movie.id === Number(id))[0];
   }
 }

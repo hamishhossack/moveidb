@@ -9,13 +9,13 @@ export default class MovieListComponent extends Component {
     this.name = 'movie-selected';
     this.tpl = currentSelectedCompTpl;
     this.context = {
-      movie: this.selectedMovieService.movie
+      selectedMovie: this.selectedMovieService.movie
     };
   }
 
   compInit() {
     this.selectedMovieService.$movie.subscribe((movie) => {
-      this.context.movie = movie;
+      this.context.selectedMovie = movie;
       this.render(); // TODO (hamish): Shadow dom should improve this
     });
   }

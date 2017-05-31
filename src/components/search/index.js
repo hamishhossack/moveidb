@@ -20,7 +20,6 @@ export default class SearchComponent extends Component {
   bindEvents() {
     // Watch the input and apply execute the latest search (wait time for human typing)
     const $input = this.el.querySelector('input');
-    console.log($input);
     this.$inputObs = Observable.fromEvent($input, 'keyup')
       .pluck('target', 'value')
       .filter(text => text.length > 2)

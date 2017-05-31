@@ -6,6 +6,7 @@ movie-list {
     background-position-x: center;
     background-position-y: top;
     position: relative;
+    border: 5px solid rgba(255,255,255,0);
 
     h2, .content {
       font: font(medium);
@@ -30,7 +31,7 @@ movie-list {
     }
 
     &:hover {
-      box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+      border: 5px solid rgba(255,255,255,1);
 
       h2 {
         top: 0;
