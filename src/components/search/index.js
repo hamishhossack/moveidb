@@ -14,17 +14,24 @@ export default class SearchComponent extends Component {
       placeholder: 'Search for movies...',
     };
     this.movies = [];
+    this.$inputObs = null;
   }
 
   bindEvents() {
     // Watch the input and apply execute the latest search (wait time for human typing)
     const $input = this.el.querySelector('input');
-    Observable.fromEvent($input, 'keyup')
+    console.log($input);
+    this.$inputObs = Observable.fromEvent($input, 'keyup')
       .pluck('target', 'value')
       .filter(text => text.length > 2)
       .distinctUntilChanged()
       .debounceTime(300)
-      .do(query => this.currentMoviesService.searchQuery = query)
-      .subscribe();
+      .subscribe(query => this.currentMoviesService.searchQuery = query);
+  }
+
+  removeEvents() {
+    if (this.$inputObs) {
+      this.$inputObs.unsubscribe();
+    }
   }
 }

@@ -39,7 +39,6 @@ export default class CurrentMoviesService {
    */
   set movies(movies) {
     this._movies = movies;
-    console.log('set', this._movies);
     this.$movies.next(movies);
   }
 

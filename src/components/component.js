@@ -39,9 +39,7 @@ export default class Component {
     console.debug(`Component Initializing: ${this.name}`);
     // 1. Render
     this.render();
-    // 2. Bind
-    this.bindEvents();
-    // 3. Init component
+    // 2. Init component
     this.compInit();
   }
 
