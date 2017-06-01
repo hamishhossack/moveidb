@@ -14,8 +14,8 @@
 ```yarn test```
 
 > *Known issues*
-> - Tests not running with any artificial dom
-> - Tests not mocking any service / feature
+> - Tests not running with any artificial dom/document
+> - Tests not mocking any service/feature
 
 ## Requirements
 The solution has to be provided as a Git repository including all the implementation commits history. Please follow the frequent commit practice while working on the task so that your local Git repository indicates reasonable milestones of your implementation. You are more than welcome to share your Git repository on a free service such as GitHub or BitBucket
@@ -31,5 +31,7 @@ The solution has to be provided as a Git repository including all the implementa
 - [ ] State management (redux)
 - [x] Test runner within Karma
 - [ ] Implement "Shadow DOM" to improve render mechanism
-- [ ] Add selected movie section
+- [x] Add selected movie section
 - [ ] Add Movie Discovery section
+- [ ] Testing should be able to harness PhantomJS document object
+- [ ] Tidy UI (maybe use a UI kit to save brain power)
