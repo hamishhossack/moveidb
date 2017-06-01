@@ -36,4 +36,18 @@ describe('SearchComponent', () => {
 
   });
 
+  describe('Search', () => {
+
+    xit('should update the current search query', () => {
+      const searchQuery = 'James Bond';
+
+      component.render();
+
+      const input = document.querySelector('input');
+      input.value = searchQuery;
+
+      expect(currentMoviesService.searchQuery).toEqual(searchQuery);
+    });
+
+  });
 });

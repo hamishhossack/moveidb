@@ -1,4 +1,5 @@
 import CurrentMoviesService from './index';
+import mockMovie from '../../__tests__/mocks/mock-movie.mock';
 
 let service;
 
@@ -10,20 +11,26 @@ describe('MovieSelectedService', () => {
 
   describe('Sanity check', () => {
 
-    it('should have an empty query', () => {
-      expect(service._query).toBeNull();
+    it('should have no movie', () => {
+      expect(service._movie).toBeNull();
     });
 
-    it('should have no movies', () => {
-      expect(service._movies).toBeNull();
+  });
+
+  describe('Select A Movie', () => {
+
+    it('should be able to set a movie', () => {
+      service.movie = mockMovie;
+      expect(service._movie).toEqual(mockMovie);
     });
 
-    it('should have default response settings', () => {
-      expect(service.page).toEqual(1);
-      expect(service.totalPages).toEqual(0);
-      expect(service.totalResults).toEqual(0);
-    });
+    it('should be able to set a movie', () => {
+      service.$movie.subscribe((movie) => {
+        expect(movie).toEqual(mockMovie);
+      });
 
+      service.movie = mockMovie;
+    });
   });
 
 });

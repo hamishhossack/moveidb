@@ -53,13 +53,13 @@ describe('Component', () => {
 
   describe('Element', () => {
 
-    // TODO (hamish): Init karma and run using a TestBed
+    // TODO (hamish): Init karma and run element testing
 
   });
 
   describe('Destroy', () => {
 
-    // TODO (hamish): ""
+    // TODO (hamish): Make sure events are clean, Make sure element is removed
 
   });
 

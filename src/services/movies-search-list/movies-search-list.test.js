@@ -70,7 +70,5 @@ describe('CurrentMoviesService', () => {
 
       service.movies = mockMovies;
     });
-
   });
-
 });
