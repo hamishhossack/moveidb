@@ -31,11 +31,13 @@ export default class MovieListComponent extends Component {
 
       // listen for a click for each gallery cell
       const $galleryCells = $gallery.querySelectorAll('.gallery-cell');
-      $galleryCells.forEach(
-        $cell => $cell.addEventListener(
-          'click', $event => this.onClickGalleryCell($event.target.dataset.id)
-        )
-      );
+      if ($galleryCells) {
+        $galleryCells.forEach(
+          $cell => $cell.addEventListener(
+            'click', $event => this.onClickGalleryCell($event.target.dataset.id)
+          )
+        );
+      }
     }
   }
 
