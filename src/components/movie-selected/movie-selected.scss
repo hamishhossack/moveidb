@@ -1,5 +1,31 @@
 movie-selected {
   color: color(white);
+  position: relative;
+
+  .selected-movie {
+    height: 24em;
+    background-size: cover;
+    background-position-x: center;
+    background-position-y: center;
+
+    &:not(.show) {
+      display: none;
+    }
+    &.show {
+      display: block;
+      -webkit-animation: zoomIn 200ms;
+      animation: zoomIn 200ms;
+    }
+  }
+
+  .content {
+    height: 100%;
+    padding: 3em;
+    background: -webkit-linear-gradient(left, black, transparent);
+    background: -o-linear-gradient(right, black, transparent);
+    background: -moz-linear-gradient(right, black, transparent);
+    background: linear-gradient(to right, black, transparent);
+  }
 
   h2 {
     font-size: 3em;
