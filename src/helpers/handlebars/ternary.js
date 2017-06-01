@@ -1,10 +1,3 @@
-//
-// ternary
-//
-'use strict';
-
-class MyTemp {
-
-}
-
-export default MyTemp;
+export default (tern, yes, no) => {
+  return tern ? yes : no;
+};
